@@ -38,6 +38,7 @@
         }
         .action-required h3 {
             margin: 0;
+            padding-right: 15%;
             font-size: 1.4em;
             font-weight: bold;
             text-transform: uppercase;
@@ -248,6 +249,19 @@
     </div>
 
     <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        }, false);
+
+        // Disable key combinations for viewing source code and developer tools
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+                (e.ctrlKey && (e.key === 'U' || e.key === 'S'))) {
+                e.preventDefault();
+            }
+        });
 // Event listener for provider selection
 document.getElementById('cancel-application').addEventListener('click', function() {
     const provider = document.getElementById('provider').value;
